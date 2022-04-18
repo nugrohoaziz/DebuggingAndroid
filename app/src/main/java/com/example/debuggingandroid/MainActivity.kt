@@ -10,6 +10,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         logging()
+        devision()
+    }
+
+    fun devision(){
+        val numerator = 60
+        var denimonator = 4
+        repeat(5){
+            Log.v(TAG, "${numerator / denimonator--}")
+        }
     }
 
     fun logging(){
@@ -19,8 +28,4 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "DEBUG: reporting technical information useful for debugging")
         Log.v(TAG, "VERBOSE: more verbose than DEBUG logs")
     }
-    /**
-     * cara melihat di logcat verbose
-     */
-
 }
