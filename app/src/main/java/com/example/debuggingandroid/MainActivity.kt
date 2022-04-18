@@ -3,24 +3,31 @@ package com.example.debuggingandroid
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 
 private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        devision()
+        Log.d(TAG, "this is where the app crashed before")
+        val helloTextView: TextView = findViewById(R.id.textview1)
+        Log.d(TAG, "this should be logged if the bug is fixed")
+        helloTextView.text = "Hello, debugging!"
+        logging()
+        division()
     }
 
     /**
      * learn how to read error code find the error from log "divided by zero"
      */
-    fun devision(){
+    fun division() {
         val numerator = 60
-        var denimonator = 4
-        repeat(5){
-            Log.d(TAG, "${denimonator}")
-            Log.v(TAG, "${numerator / denimonator--}")
+        var denominator = 4
+        repeat(4) {
+            Log.d(TAG, "${denominator}")
+            Log.v(TAG, "${numerator / denominator}")
+            denominator--
         }
     }
 
